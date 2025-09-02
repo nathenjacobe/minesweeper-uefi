@@ -1,6 +1,10 @@
 minesweeper as a uefi app; run using qemu on ubuntu linux. 
 
-[Screencast from 2025-09-02 22-17-13.webm](https://github.com/user-attachments/assets/8b1ac8f0-ba37-48c3-abb6-a6f0e5b887a5)
+
+
+https://github.com/user-attachments/assets/957f1a57-75ee-44af-8921-cc64bce1ec50
+
+
 as you can probably tell i am really bad at minesweeper
 
 
