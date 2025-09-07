@@ -12,8 +12,8 @@ use uefi::proto::console::text::Key;
 
 const FRAMERATE: usize = 30;
 const FRAME_INTERVAL: usize = 1_000_000 / FRAMERATE;
-const GRID_SIZE: usize = 16;
-const BOMB_COUNT: usize = 80;
+const GRID_SIZE: usize = 12;
+const BOMB_COUNT: usize = 50;
 const GAME_OVER_DELAY: usize = 2_000_000;
 
 const COLOR_HIDDEN: BltPixel = BltPixel::new(30, 30, 30);
@@ -263,8 +263,8 @@ impl Game {
             's' => self.selection.y = (self.selection.y + 1).min(GRID_SIZE - 1),
             'a' => self.selection.x = self.selection.x.saturating_sub(1),
             'd' => self.selection.x = (self.selection.x + 1).min(GRID_SIZE - 1),
-            'e' => self.toggle_flag(),
-            'q' => self.reveal_selected(),
+            'f' => self.toggle_flag(),
+            't' => self.reveal_selected(),
             _ => {}
         }
     }
@@ -383,7 +383,7 @@ fn draw_game(game: &Game, buffer: &mut Buffer) {
                         Vec2::new(center_x + dot_size, center_y + dot_size),
                     ],
                     // i got kinda lazy and bored having to figure out exactly where the rectangles go...
-                    // lets hope the user doesn't get more than 3 bombs. if they do, im pretty sure
+                    // lets hope the user doesn't get more than 4 bombs. if they do, im pretty sure
                     // just a big square is good enough to let them know there's a whole lotta bombs.
                     _ => {
                         let big_dot_size = dot_size * 2;
@@ -431,8 +431,8 @@ fn get_key_press() -> Option<char> {
             let a_lo = Char16::try_from('a').unwrap();
             let s_lo = Char16::try_from('s').unwrap();
             let d_lo = Char16::try_from('d').unwrap();
-            let e_lo = Char16::try_from('e').unwrap();
-            let q_lo = Char16::try_from('q').unwrap();
+            let f_lo = Char16::try_from('f').unwrap();
+            let t_lo = Char16::try_from('t').unwrap();
 
             if key == w_lo {
                 Some('w')
@@ -442,10 +442,10 @@ fn get_key_press() -> Option<char> {
                 Some('s')
             } else if key == d_lo {
                 Some('d')
-            } else if key == e_lo {
-                Some('e')
-            } else if key == q_lo {
-                Some('q')
+            } else if key == f_lo {
+                Some('f')
+            } else if key == t_lo {
+                Some('t')
             } else {
                 None
             }
