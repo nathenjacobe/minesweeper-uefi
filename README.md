@@ -3,8 +3,8 @@ Minesweeper as a UEFI app, built using the Rust UEFI crate. Uses QEMU as the emu
 https://github.com/user-attachments/assets/a06e56d5-2f4f-4fa5-9ceb-6c2aaf696a3d
 
 Controls:  
-WASD - Move tile selector
-F - Flag currently selected tile as bomb
+WASD - Move tile selector  
+F - Flag currently selected tile as bomb  
 T - Test currently selected tile. If it is not a bomb, reveal the number of neighbours (includes diagonals; 0-8 inclusive) which are bombs; otherwise, you lose!
 
 You are guaranteed to start on an empty tile. If an empty tile is revealed, it recursively reveals all neighbours if the current tile in the recursion stack is empty.  
